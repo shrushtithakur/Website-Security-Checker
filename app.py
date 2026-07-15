@@ -57,6 +57,7 @@ st.markdown("""
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-4RZV3SQW4N');
 </script>
 """, unsafe_allow_html=True)

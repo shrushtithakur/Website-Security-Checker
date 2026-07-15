@@ -1,0 +1,8 @@
+streamlit
+requests
+pyOpenSSL
+cryptography
+plotly
+fpdf
+selenium
+webdriver-manager

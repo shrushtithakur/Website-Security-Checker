@@ -49,6 +49,18 @@ st.set_page_config(
     layout="wide"
 )
 
+# ---------------- Google Analytics Tracking ----------------
+st.markdown("""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RZV3SQW4N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4RZV3SQW4N');
+</script>
+""", unsafe_allow_html=True)
+
 # ---------------- Global UI Styling ----------------
 st.markdown("""
 <style>

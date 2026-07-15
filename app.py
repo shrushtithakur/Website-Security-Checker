@@ -49,11 +49,16 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------------- Google Analytics Tracking (Unblocked) ----------------
+# ---------------- Google Analytics Tracking (Combined & Optimized) ----------------
 st.markdown("""
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RZV3SQW4N"></script>
 <script>
+  // Immediately load Google Tag Manager/GA to bypass blockers
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtag/js?id=G-4RZV3SQW4N';f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','G-4RZV3SQW4N');
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -255,7 +260,6 @@ if st.session_state.scan_completed:
     )
 
     if os.path.exists(st.session_state.screenshot_path):
-        # UPDATED: use 'width="stretch"' to fix the deprecation warning
         st.image(
             Image.open(st.session_state.screenshot_path),
             caption="Captured Website Screenshot",
@@ -283,7 +287,6 @@ if st.session_state.scan_completed:
 
     if st.session_state.pdf_path and os.path.exists(st.session_state.pdf_path):
         with open(st.session_state.pdf_path, "rb") as pdf:
-            # UPDATED: Removed deprecated 'use_container_width=True' to clear terminal warning
             st.download_button(
                 "Download PDF Security Audit Report",
                 pdf,

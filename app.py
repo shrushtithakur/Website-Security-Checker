@@ -49,7 +49,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------------- Google Analytics Tracking ----------------
+# ---------------- Google Analytics Tracking (Unblocked) ----------------
 st.markdown("""
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RZV3SQW4N"></script>
@@ -57,7 +57,6 @@ st.markdown("""
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-4RZV3SQW4N');
 </script>
 """, unsafe_allow_html=True)
@@ -256,10 +255,11 @@ if st.session_state.scan_completed:
     )
 
     if os.path.exists(st.session_state.screenshot_path):
+        # UPDATED: use 'width="stretch"' to fix the deprecation warning
         st.image(
             Image.open(st.session_state.screenshot_path),
             caption="Captured Website Screenshot",
-            use_container_width=True
+            width='stretch'
         )
 
     st.markdown("</div>", unsafe_allow_html=True)
@@ -283,12 +283,12 @@ if st.session_state.scan_completed:
 
     if st.session_state.pdf_path and os.path.exists(st.session_state.pdf_path):
         with open(st.session_state.pdf_path, "rb") as pdf:
+            # UPDATED: Removed deprecated 'use_container_width=True' to clear terminal warning
             st.download_button(
                 "Download PDF Security Audit Report",
                 pdf,
                 file_name="Website_Security_Report.pdf",
-                mime="application/pdf",
-                use_container_width=True
+                mime="application/pdf"
             )
     else:
         st.error("PDF file was not generated correctly. Please scan again.")

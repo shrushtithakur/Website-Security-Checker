@@ -52,13 +52,13 @@ st.set_page_config(
 # ---------------- Google Analytics Tracking (Official Script) ----------------
 st.markdown("""
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RZV3SQW4N"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8Y69LYR99"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-4RZV3SQW4N');
+  gtag('config', 'G-P8Y69LYR99');
 </script>
 """, unsafe_allow_html=True)
 
